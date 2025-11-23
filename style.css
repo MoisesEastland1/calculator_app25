@@ -6,6 +6,16 @@
   overflow: hidden;
 }
 
+.display {
+  width: 100%;
+  padding: 20px;
+  font-size: 5rem;
+  text-align: left;
+  border: none;
+  color: white;
+  background-color: rgb(31, 31, 31);
+}
+
 .keys-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
