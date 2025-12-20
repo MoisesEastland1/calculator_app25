@@ -1,3 +1,5 @@
+const display = document.getElementById("display");
+
 const btnVal = [
   "AC", "+/-","%","÷",
   "7","8","9","×",
@@ -6,7 +8,19 @@ const btnVal = [
   "0",".","="
 ];
 
-const Symbols = ["AC", "+/-","%","÷","×","-","+","="];
+const rightSymbols = ["÷","×","-","+","="];
+const topSymbols = ["AC", "+/-","%"]
+
+//Equation input
+let x = 0;
+let opp = null;
+let y = null;
+
+function clearAll() {
+  x = 0;
+  opp = null;
+  y = null;
+}
 
 
 for (let i = 0; i < btnVal.length; i++) {
@@ -18,11 +32,10 @@ for (let i = 0; i < btnVal.length; i++) {
   document.getElementById("btns").appendChild(btn);
 
   //button color
-  if(Symbols.includes(value)) {
+  if(rightSymbols.includes(value) || topSymbols.includes(value) ) {
     btn.style.backgroundColor = "rgb(28, 38, 148)";
-  } else {
+  } else 
     btn.style.backgroundColor = "rgb(86, 84, 84)"
-  }
 
   //zero button
   if(value == "0") {
@@ -30,4 +43,61 @@ for (let i = 0; i < btnVal.length; i++) {
     btn.style.gridColumn = "span 2";
   }
 
-}
+  btn.addEventListener("click", ()=>{
+    if(rightSymbols.includes(value)) {
+
+    }
+    else if(topSymbols.includes(value)) {
+    
+    }
+    /**Numbers and Decimal */
+    else {
+    if(value == ".") {
+      if(display.value != "" && !display.value.includes(value)) {
+      display.value += value;
+      }
+    }
+    else if(display.value == "0") {
+      display.value = value;
+    }
+    else {
+      display.value += value;
+    }
+    }//numbers and decimal end
+  });//eventlisterner end
+  
+    
+      /*if(value == "AC") {
+        clearAll();
+        display.value = "";
+      }
+
+      /*else if(value == "+/-") {
+      if(display.value != "" && display.value != "0") {
+        if(display.value[0] == "-") {
+          display.value = display.value.slice(1);
+        }
+      else {
+        display.value = "-" + display.value;
+      }*/
+
+      }//percentage 
+      /*else if(value == "%") {
+        display.value = Number(display.value)/100;
+      }*/
+
+      
+    
+    //Numbers and Decimal
+    /*else {
+      
+      if(value == ".") {
+        if(display.value != "" && !display.value.includes(value)) {
+          display.value += value;
+        }
+
+      }
+    }
+  
+
+}*/
