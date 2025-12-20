@@ -48,8 +48,19 @@ for (let i = 0; i < btnVal.length; i++) {
 
     }
     else if(topSymbols.includes(value)) {
-    
-    }
+    if(value == "AC") {
+        clearAll();
+        display.value = "";
+      }
+      else if (value == "+/-") {
+      if(display.value != "" && display.value != "0") {
+        
+      }
+      }
+      else if(value == "%") {
+        display.value = Number(display.value)/100;
+      }
+    }//topSymbol end
     /**Numbers and Decimal */
     else {
     if(value == ".") {
