@@ -1,7 +1,13 @@
 const btnVal = [
-"7","8","9","-","4","5","6","x","1","2","3","/","0",".","="
-]
+  "AC", "+/-","%","÷",
+  "7","8","9","×",
+  "4","5","6","-",
+  "1","2","3","+",
+  "0",".","="
+];
 
+const rightSymbols = ["÷","×","-","+","="];
+const topSymbols = ["AC", "+/-","%"];
 const display = document.getElementById("display");
 const plusBtn = document.getElementById("plus-btn");
 
