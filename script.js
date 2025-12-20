@@ -6,15 +6,28 @@ const btnVal = [
   "0",".","="
 ];
 
-const rightSymbols = ["÷","×","-","+","="];
-const topSymbols = ["AC", "+/-","%"];
-const display = document.getElementById("display");
-const plusBtn = document.getElementById("plus-btn");
+const Symbols = ["AC", "+/-","%","÷","×","-","+","="];
 
-const plusValue = "+";
 
-plusBtn.id = `${plusValue} ${plusBtn}`;
-console.log(plusBtn.id);
-function displayInput(input) {
-  
+for (let i = 0; i < btnVal.length; i++) {
+  let value = btnVal[i];
+  let btn = document.createElement("button");
+  btn.innerText = value;
+
+  //Buttons
+  document.getElementById("btns").appendChild(btn);
+
+  //button color
+  if(Symbols.includes(value)) {
+    btn.style.backgroundColor = "rgb(28, 38, 148)";
+  } else {
+    btn.style.backgroundColor = "rgb(86, 84, 84)"
+  }
+
+  //zero button
+  if(value == "0") {
+    btn.style.width = "200px";
+    btn.style.gridColumn = "span 2";
+  }
+
 }
