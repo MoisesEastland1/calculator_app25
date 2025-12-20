@@ -45,13 +45,38 @@ for (let i = 0; i < btnVal.length; i++) {
 
   btn.addEventListener("click", ()=>{
     if(rightSymbols.includes(value)) {
+      if(value == "=") {
+        if(x != null) {
+          y = display.value;
+          let numX = Number(x);
+          let numY = Number(y);
 
-    }
+          if(opp == "÷") {
+            display.value = numX / numY;
+          }
+          else if(opp == "×") {
+            display.value = numX * numY;
+          }
+          else if(opp == "-") {
+            display.value = numX - numY;
+          }
+          else if(opp == "+") {
+            display.value = numX + numY;
+          }
+          clearAll();
+        }
+      }
+      else {
+        opp = value;
+        x = display.value;
+        display.value = "";
+      }
+    }/**Clear All */
     else if(topSymbols.includes(value)) {
     if(value == "AC") {
         clearAll();
         display.value = "";
-      }
+      }/**Positive and Negative Value */
       else if (value == "+/-") {
       if(display.value != "" && display.value != "0") {
         if(display.value[0] == "-") {
@@ -61,11 +86,12 @@ for (let i = 0; i < btnVal.length; i++) {
           display.value = "-" + display.value;
         }
       }
-      }
+      }/**Percentage */
       else if(value == "%") {
         display.value = Number(display.value)/100;
       }
     }//topSymbol end
+
     /**Numbers and Decimal */
     else {
     if(value == ".") {
