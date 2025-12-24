@@ -59,6 +59,9 @@ body {
   .display {
     font-size: 2rem;
   }
+  .btns {
+    gap: 5px;
+  }
 .btns button {
   width: 70px;
   font-size: 2rem;
